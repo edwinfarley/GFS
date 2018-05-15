@@ -23,7 +23,7 @@
 #' @param conda_env 'NA' by default. If using the Anaconda distribution of
 #' 			python, specify which environment to use. Runs 'source activate conda_env'.
 #' @param activate_env 'NA' by default. Enter a string with the command used to
-#'			activate the desired python environment if it neither the default
+#'			activate the desired python environment if it is neither the default
 #'			environment nor an Anaconda environment.
 #' @param keep_csv FALSE by default. If TRUE, the .csv file containing the
 #'			permutations will not be automatically deleted upon completion of the

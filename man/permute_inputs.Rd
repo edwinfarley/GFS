@@ -42,7 +42,7 @@ in between each sample.}
 python, specify which environment to use. Runs 'source activate conda_env'.}
 
 \item{activate_env}{'NA' by default. Enter a string with the command used to
-activate the desired python environment if it neither the default
+activate the desired python environment if it is neither the default
 environment nor an Anaconda environment.}
 
 \item{keep_csv}{FALSE by default. If TRUE, the .csv file containing the
