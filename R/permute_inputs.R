@@ -34,12 +34,16 @@
 #' @export permute_inputs
 
 permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in, sample_interval, conda_env = 'NA', activate_env = 'NA', keep_csv = FALSE){
+	package_path = path.package('GFS')
+	exec_file = paste(package_path, '/python/exec.py', sep = '')
+
+	if(!file.exists(exec_file)){py_setup()}
+
 	fileConn<-file("input.txt")
 	writeLines(c(df1_path, df2_path, formula, family, toString(N), toString(I),
 	 	toString(t), toString(burn_in), toString(sample_interval)), fileConn)
 	close(fileConn)
-	package_path = path.package('GFSsampler')
-	exec_file = paste(package_path, '/python/exec.py', sep = '')
+
 	command = ''
 
 	if(conda_env != 'NA'){

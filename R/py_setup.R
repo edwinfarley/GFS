@@ -1,6 +1,6 @@
 #' Installs the required python files to the package directory.
 #' No input is required. Python code can be found on GitHub at:
-#' https://github.com/edwinfarley/GFS
+#' https://github.com/edwinfarley/GFSpython
 #'
 #' @export py_setup
 
