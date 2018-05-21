@@ -61,5 +61,6 @@ permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in,
 	system(paste('rm -r ', package_path, '/python/__pycache__', sep = ''))
 	if(! keep_csv){system('rm permutations.csv')}
 
+	perms[perms == -1] = NA
 	return(perms+1)
 }
