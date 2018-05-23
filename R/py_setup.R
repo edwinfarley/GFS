@@ -6,6 +6,6 @@
 
 py_setup = function(){
     package_path = paste(path.package('GFS'), '/python', sep ='')
-    system(paste('rm -r', package_path, sep = ' '))
+    if(!file.exists(package_path)){system(paste('rm -r', package_path, sep = ' '))
     system(paste('git clone https://github.com/edwinfarley/GFSpython', package_path, sep = ' '))
 }
