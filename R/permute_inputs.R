@@ -18,8 +18,10 @@
 #' 			in the Metropolis-Hastings step.
 #' @param burn_in An integer specifying the number of full iterations to be
 #' 			completed before any samples are taken.
-#' @param sample_interval An integer specifying the number of full iterations
-#' 			in between each sample.
+#' @param sample_interval An integer specifying the period of sampling. If 
+#'			sample_interval is 1, every full iteration will be a sample, if
+#'			sample_interval is 2, every other full iteration will be a sample,
+#'          and so on.
 #' @param conda_env 'NA' by default. If using the Anaconda distribution of
 #' 			python, specify which environment to use. Runs 'source activate conda_env'.
 #' @param activate_env 'NA' by default. Enter a string with the command used to
@@ -51,10 +53,10 @@ permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in,
 	} else if(activate_env != 'NA'){
 		command = paste(activate_env, ';', sep = ' ')
 		}
-
+	killed = FALSE
 	command = paste(command, 'python', exec_file, package_path, getwd(), sep = ' ')
-	system(command)
-
+	
+	tryCatch(system(command), interrupt = print("Process Start."), finally = system("pkill python"))
 	perms = read.csv('permutations.csv')
 	perms$X = NULL
 	system('rm input.txt')
@@ -63,4 +65,5 @@ permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in,
 
 	perms[perms == -1] = NA
 	return(perms+1)
+	
 }
