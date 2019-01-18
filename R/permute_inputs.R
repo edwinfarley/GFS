@@ -49,7 +49,7 @@ permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in,
 	command = ''
 
 	if(conda_env != 'NA'){
-		command = paste('source activate', conda_env, ';', sep = ' ')
+		command = paste('conda activate', conda_env, ';', sep = ' ')
 	} else if(activate_env != 'NA'){
 		command = paste(activate_env, ';', sep = ' ')
 		}
