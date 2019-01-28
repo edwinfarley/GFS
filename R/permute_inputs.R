@@ -35,7 +35,7 @@
 #' 			respect to the first dataset to be applied to the second dataset.
 #' @export permute_inputs
 
-permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in, sample_interval, block_name = 'block', conda_env = 'NA', activate_env = 'NA', keep_csv = FALSE){
+permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in, sample_interval, block_name = 'block', conda_env = 'NA', activate_env = 'NA', python = "python", keep_csv = FALSE){
 	package_path = path.package('GFS')
 	exec_file = paste(package_path, '/python/exec.py', sep = '')
 
@@ -54,7 +54,7 @@ permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in,
 		command = paste(activate_env, ';', sep = ' ')
 		}
 	killed = FALSE
-	command = paste(command, 'python', exec_file, package_path, getwd(), sep = ' ')
+	command = paste(command, python, exec_file, package_path, getwd(), sep = ' ')
 	
 	tryCatch(system(command), interrupt = print("Process Start."), finally = system("pkill python"))
 	perms = read.csv('permutations.csv')
