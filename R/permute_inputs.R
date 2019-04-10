@@ -1,10 +1,13 @@
-#' Runs the permutation sampling procedure on the two datasets specified by the
-#' df1_path and df2_path inputs over the blocks defined in the datasets.
+#' Runs the permutation sampling procedure on the two data sets specified by the
+#' df1_path and df2_path inputs over the blocks defined in the data sets. A
+#' sampled permutation can be applied to the data set at df2_path to aling its
+#' rows with those of the data set at df1_path.
 #'
 #' @param df1_path A string with the path (from the R working directory) to the
-#' first dataset with blocks.
+#' first data set with blocks.
 #' @param df2_path A string with the path (from the R working directory) to the
-#' 			second dataset with blocks.
+#' 			second data set with blocks. This data set MUST contain the response
+#'          variable from the formula.
 #' @param formula A string with the formula specifying the response variable
 #' 			and the covariates. Written in the R format (e.g. 'y ~ x1 + x2 + x3').
 #' @param family A string specifying the family of distributions used in the
@@ -31,8 +34,8 @@
 #'			permutations will not be automatically deleted upon completion of the
 #'			procedure.
 #' @return A dataframe with number of rows equal to the number of rows in the
-#' 			first dataset and N columns. Each column is a full permutation with
-#' 			respect to the first dataset to be applied to the second dataset.
+#' 			first data set and N columns. Each column is a full permutation with
+#' 			respect to the first data set to be applied to the second data set.
 #' @export permute_inputs
 
 permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in, sample_interval, block_name = 'block', conda_env = 'NA', activate_env = 'NA', python = "python", keep_csv = FALSE){
