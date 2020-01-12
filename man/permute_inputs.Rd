@@ -2,19 +2,35 @@
 % Please edit documentation in R/permute_inputs.R
 \name{permute_inputs}
 \alias{permute_inputs}
-\title{Runs the permutation sampling procedure on the two datasets specified by the
-df1_path and df2_path inputs over the blocks defined in the datasets.}
+\title{Runs the permutation sampling procedure on the two data sets specified by the
+df1_path and df2_path inputs over the blocks defined in the data sets. A
+sampled permutation can be applied to the data set at df2_path to aling its
+rows with those of the data set at df1_path.}
 \usage{
-permute_inputs(df1_path, df2_path, formula, family, N, I, t, burn_in,
-  sample_interval, conda_env = "NA", activate_env = "NA",
-  keep_csv = FALSE)
+permute_inputs(
+  df1_path,
+  df2_path,
+  formula,
+  family,
+  N,
+  I,
+  t,
+  burn_in,
+  sample_interval,
+  block_name = "block",
+  conda_env = "NA",
+  activate_env = "NA",
+  python = "python",
+  keep_csv = FALSE
+)
 }
 \arguments{
 \item{df1_path}{A string with the path (from the R working directory) to the
-first dataset with blocks.}
+first data set with blocks.}
 
 \item{df2_path}{A string with the path (from the R working directory) to the
-second dataset with blocks.}
+   second data set with blocks. This data set MUST contain the response
+variable from the formula.}
 
 \item{formula}{A string with the formula specifying the response variable
 and the covariates. Written in the R format (e.g. 'y ~ x1 + x2 + x3').}
@@ -35,8 +51,10 @@ in the Metropolis-Hastings step.}
 \item{burn_in}{An integer specifying the number of full iterations to be
 completed before any samples are taken.}
 
-\item{sample_interval}{An integer specifying the number of full iterations
-in between each sample.}
+\item{sample_interval}{An integer specifying the period of sampling. If 
+sample_interval is 1, every full iteration will be a sample, if
+sample_interval is 2, every other full iteration will be a sample,
+ and so on.}
 
 \item{conda_env}{'NA' by default. If using the Anaconda distribution of
 python, specify which environment to use. Runs 'source activate conda_env'.}
@@ -51,10 +69,12 @@ procedure.}
 }
 \value{
 A dataframe with number of rows equal to the number of rows in the
-			first dataset and N columns. Each column is a full permutation with
-			respect to the first dataset to be applied to the second dataset.
+			first data set and N columns. Each column is a full permutation with
+			respect to the first data set to be applied to the second data set.
 }
 \description{
-Runs the permutation sampling procedure on the two datasets specified by the
-df1_path and df2_path inputs over the blocks defined in the datasets.
+Runs the permutation sampling procedure on the two data sets specified by the
+df1_path and df2_path inputs over the blocks defined in the data sets. A
+sampled permutation can be applied to the data set at df2_path to aling its
+rows with those of the data set at df1_path.
 }

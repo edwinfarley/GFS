@@ -1,14 +1,14 @@
 Package: GFS
 Title: Permutation Sampler
 Version: 0.0.0.9000
-Authors@R: c(person("Edwin", "Farley", email = "edwin_farley@brown.edu", role = "aut"),
-      person("Preston", "Schwartz", email = "preston_schwartz@brown.edu", role = "aut"),
+Authors@R: c(person("Edwin", "Farley", email = "edwin_farley@alumni.brown.edu", role = "aut"),
+      person("Preston", "Schwartz", email = "preston_schwartz@alumni.brown.edu", role = "aut"),
       person("Roee", "Gutman", email = "roee_gutman@brown.edu", role = c("aut", "cre")))
 Description: Samples permutations between datasets within defined blocks.
 Depends: R (>= 3.2.2)
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 7.0.2
 Imports:
     reticulate
