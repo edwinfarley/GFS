@@ -3,13 +3,18 @@
 \name{py_setup}
 \alias{py_setup}
 \title{Installs the required python files to the package directory.
-No input is required. Python code can be found on GitHub at:
+No input is required, but the force argument can be set. 
+Python code can be found on GitHub at:
 https://github.com/edwinfarley/GFSpython}
 \usage{
-py_setup()
+py_setup(force = FALSE)
+}
+\arguments{
+\item{force}{Whether to remove existing python directory and re-install components.}
 }
 \description{
 Installs the required python files to the package directory.
-No input is required. Python code can be found on GitHub at:
+No input is required, but the force argument can be set. 
+Python code can be found on GitHub at:
 https://github.com/edwinfarley/GFSpython
 }
