@@ -40,13 +40,12 @@
 #' 			respect to the first data set to be applied to the second data set.
 #' @export permute_inputs
 #' @importFrom utils read.csv
-#' @importFrom stringr str_replace
 
 permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in, sample_interval, block_name = 'block', conda_env = 'NA', activate_env = 'NA', python = "python"){
 	# Get path of package. The python code will be kept here.
 	package_path = path.package('GFS')
 	# Get path of session temporary files. Need to replace double backslash in path.
-	temp_path = str_replace(tempdir(), "//", "/")
+	temp_path = stringr::str_replace(tempdir(), "//", "/")
 	exec_file = paste(package_path, '/python/exec.py', sep = '')
 
 	if(!file.exists(exec_file)){py_setup()}
