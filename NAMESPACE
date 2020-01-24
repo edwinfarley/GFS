@@ -3,3 +3,4 @@
 export(create_python_environment)
 export(permute_inputs)
 export(py_setup)
+importFrom(utils,read.csv)

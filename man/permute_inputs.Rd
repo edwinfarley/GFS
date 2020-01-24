@@ -20,8 +20,7 @@ permute_inputs(
   block_name = "block",
   conda_env = "NA",
   activate_env = "NA",
-  python = "python",
-  keep_csv = FALSE
+  python = "python"
 )
 }
 \arguments{
@@ -56,6 +55,10 @@ sample_interval is 1, every full iteration will be a sample, if
 sample_interval is 2, every other full iteration will be a sample,
  and so on.}
 
+\item{block_name}{The name of the column in the two input data sets that
+contains the number of the block to which each row belongs. Set to
+"block" by default. Column name must be the same in the two data sets.}
+
 \item{conda_env}{'NA' by default. If using the Anaconda distribution of
 python, specify which environment to use. Runs 'source activate conda_env'.}
 
@@ -63,9 +66,8 @@ python, specify which environment to use. Runs 'source activate conda_env'.}
 activate the desired python environment if it is neither the default
 environment nor an Anaconda environment.}
 
-\item{keep_csv}{FALSE by default. If TRUE, the .csv file containing the
-permutations will not be automatically deleted upon completion of the
-procedure.}
+\item{python}{The name of the installed python deployment. If a conda environment
+was set up with create_conda_environment, this should be "python".}
 }
 \value{
 A dataframe with number of rows equal to the number of rows in the
