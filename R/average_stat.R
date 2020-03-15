@@ -37,11 +37,8 @@ average_stat = function(df1, df2, P, stat, stat_var = NULL, a = 0.95, block = "b
 	stderrs = numeric(ncol(P))
 	for(i in 1:ncol(P)){
 		p = as.vector(P[, i])
-		for(c in 1:ncol(df2)){
-			df2_unshuffled[, c] = df2[, c][p]
-		}
 		#Unshuffle df2 to link data sets
-		df_i = cbind(df1, df2_unshuffled)
+		df_i = build_permutation(df1, df2, p) 
 		values[i] = stat(df_i)
 		coeffs[i] = linreg[2, 1]
 		stderrs[i] = stat_var(df_i)

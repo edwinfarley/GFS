@@ -51,7 +51,7 @@ permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in,
 	if(!file.exists(exec_file)){py_setup()}
 	input_path = paste(temp_path, "/input.txt", sep = "")
 	fileConn = file(input_path)
-	writeLines(c(df1_path, df2_path, formula, family, toString(N), toString(I),
+	writeLines(c(df1_path, df2_path, toString(formula), toString(family), toString(N), toString(I),
 	 	toString(t), toString(burn_in), toString(sample_interval), block_name), fileConn)
 	close(fileConn)
 
@@ -76,6 +76,6 @@ permute_inputs = function(df1_path, df2_path, formula, family, N, I, t, burn_in,
 	# Remove .csv file
 	system(paste("rm ", csv_path, sep = ""))
 
-	perms[perms == -1] = NA
+	perms[perms < 0] = NA
 	return(perms+1)
 }
