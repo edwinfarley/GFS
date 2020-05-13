@@ -1,4 +1,4 @@
-Installation and Getting Started Instructions
+# GFS Installation and Getting Started Instructions
 
 1. Installing GFS: With devtools, use install_github to fetch and install the package from https://github.com/edwinfarley/GFS, or clone the repository yourself from the same link and then use install_local, passing the path to the local directory that contains the package. Now load the package with a call to library(GFS).
 
