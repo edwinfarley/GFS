@@ -3,13 +3,13 @@
 \name{permute_inputs}
 \alias{permute_inputs}
 \title{Runs the permutation sampling procedure on the two data sets specified by the
-df1_path and df2_path inputs over the blocks defined in the data sets. A
-sampled permutation can be applied to the data set at df2_path to aling its
-rows with those of the data set at df1_path.}
+df1 and df2 inputs over the blocks defined in the data sets (dataframes or
+relative paths to dataframes). A sampled permutation can be applied to the
+data set at df2_path to aling its rows with those of the data set at df1_path.}
 \usage{
 permute_inputs(
-  df1_path,
-  df2_path,
+  df1,
+  df2,
   formula,
   family,
   N,
@@ -24,11 +24,11 @@ permute_inputs(
 )
 }
 \arguments{
-\item{df1_path}{A string with the path (from the R working directory) to the
-first data set with blocks.}
+\item{df1}{A dataframe OR a string with the path (from the R working directory) to
+the first data set with blocks.}
 
-\item{df2_path}{A string with the path (from the R working directory) to the
-   second data set with blocks. This data set MUST contain the response
+\item{df2}{A dataframe OR a string with the path (from the R working directory) to
+the second data set with blocks. This data set MUST contain the response
 variable from the formula.}
 
 \item{formula}{A string with the formula specifying the response variable
@@ -76,7 +76,7 @@ A dataframe with number of rows equal to the number of rows in the
 }
 \description{
 Runs the permutation sampling procedure on the two data sets specified by the
-df1_path and df2_path inputs over the blocks defined in the data sets. A
-sampled permutation can be applied to the data set at df2_path to aling its
-rows with those of the data set at df1_path.
+df1 and df2 inputs over the blocks defined in the data sets (dataframes or
+relative paths to dataframes). A sampled permutation can be applied to the
+data set at df2_path to aling its rows with those of the data set at df1_path.
 }
