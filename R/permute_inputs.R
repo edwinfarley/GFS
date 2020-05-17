@@ -46,6 +46,7 @@ permute_inputs = function(df1, df2, formula, family, N, I, t, burn_in, sample_in
 	package_path = path.package('GFS')
 	# Get path of session temporary files. Need to replace double backslash in path.
 	temp_path = stringr::str_replace(tempdir(), "//", "/")
+    R_wd = sprintf("'%s'", getwd())
 	exec_file = paste(package_path, '/python/exec.py', sep = "")
 
     # If df1 input is already a path, use it, otherwise write dataframe to temporary directory
@@ -77,18 +78,17 @@ permute_inputs = function(df1, df2, formula, family, N, I, t, burn_in, sample_in
 	close(fileConn)
 
 	command = ''
-
 	if(conda_env != 'NA'){
 		command = paste('source activate', conda_env, ';', sep = ' ')
 	} else if(activate_env != 'NA'){
 		command = paste(activate_env, ';', sep = ' ')
 		}
 	killed = FALSE
-	command = paste(command, python, exec_file, package_path, getwd(), temp_path, sep = ' ')
+	command = paste(command, python, exec_file, package_path, R_wd, temp_path, sep = ' ')
 	
     kill_command = paste("pkill -9 -f", exec_file)
-	tryCatch(system(command), interrupt = print("Process Start."),
-		finally = suppressWarnings(system(kill_command)))
+	suppressWarnings(tryCatch(system(command), interrupt = print("Process Start."),
+		finally = system(kill_command)))
 	
     csv_path = paste(temp_path, "/permutations.csv", sep = "")
     if(!file.exists(csv_path)){
