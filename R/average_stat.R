@@ -24,7 +24,7 @@
 average_stat = function(df1, df2, P, stat, stat_var = NULL, a = 0.95, block = "block"){
 	df1[block] = NULL
 	df2[block] = NULL
-	if(stat_var == NULL){
+	if(is.null(stat_var)){
 		#No within imputation variance for 'stat'
 		var_mult = 1
 		stat_var = function(x){ return(0) }
@@ -33,21 +33,20 @@ average_stat = function(df1, df2, P, stat, stat_var = NULL, a = 0.95, block = "b
 		var_mult = (1 + (1/ncol(P)))
 	}
 	df2_unshuffled = df2 * 0
-	values = numeric(ncol(P))
-	stderrs = numeric(ncol(P))
+    values = as.numeric(ncol(P))
+    stderrs = as.numeric(ncol(P))
 	for(i in 1:ncol(P)){
 		p = as.vector(P[, i])
 		#Unshuffle df2 to link data sets
 		df_i = build_permutation(df1, df2, p) 
 		values[i] = stat(df_i)
-		coeffs[i] = linreg[2, 1]
 		stderrs[i] = stat_var(df_i)
 	}
 	#Total variance
 	total_var = (var_mult * var(values)) + mean(stderrs)
 	value_estimate = mean(values)
 	Z = qnorm(a + ((1-a)/2))
-	hi = coeff_estimate + (Z * sqrt(total_var))
-	lo = coeff_estimate - (Z * sqrt(total_var))
-	return(list(value_estimate, total_var, c(lo, hi), true_coeff))
+	hi = value_estimate + (Z * sqrt(total_var))
+	lo = value_estimate - (Z * sqrt(total_var))
+	return(list(value_estimate, total_var, c(lo, hi)))
 }

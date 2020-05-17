@@ -9,8 +9,8 @@
 build_permutation = function(df1, df2, p){
 	stopifnot(ncol(p) == 1)
 	stopifnot(length(p) == nrow(df1))
-	df1_adj = df1[which(!is.na(p))]
-	df2_unshuffled = df2[p, ]
+	df1_adj = df1[which(!is.na(p)),]
+	df2_unshuffled = df2[p[which(!is.na(p))], ]
 	
-	return(cbind(df1, df2_unshuffled))
+	return(cbind(df1_adj, df2_unshuffled))
 }
