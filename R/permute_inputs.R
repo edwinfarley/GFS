@@ -85,8 +85,8 @@ permute_inputs = function(df1, df2, formula, family, N, I, t, burn_in, sample_in
 		}
 	killed = FALSE
 	command = paste(command, python, exec_file, package_path, R_wd, temp_path, sep = ' ')
-	
     kill_command = paste("pkill -9 -f", exec_file)
+    
 	suppressWarnings(tryCatch(system(command), interrupt = print("Process Start."),
 		finally = system(kill_command)))
 	
