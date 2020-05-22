@@ -82,13 +82,11 @@ permute_inputs = function(df1, df2, formula, family, N, I, t, burn_in, sample_in
 		command = paste('source activate', conda_env, ';', sep = ' ')
 	} else if(activate_env != 'NA'){
 		command = paste(activate_env, ';', sep = ' ')
-		}
-	killed = FALSE
+    }
 	command = paste(command, python, exec_file, package_path, R_wd, temp_path, sep = ' ')
     kill_command = paste("pkill -9 -f", exec_file)
     
-	suppressWarnings(tryCatch(system(command), interrupt = print("Process Start."),
-		finally = system(kill_command)))
+	suppressWarnings(tryCatch(system(command), interrupt = print("Process Start."), finally = system(kill_command)))
 	
     csv_path = paste(temp_path, "/permutations.csv", sep = "")
     if(!file.exists(csv_path)){
