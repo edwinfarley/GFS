@@ -79,7 +79,8 @@ permute_inputs = function(df1, df2, formula, family, N, I, t, burn_in, sample_in
 
 	command = ''
 	if(conda_env != 'NA'){
-		command = paste('source activate', conda_env, ';', sep = ' ')
+        #Use conda activate [conda_env] for new versions of Anaconda.
+		command = paste('conda activate', conda_env, ';', sep = ' ')
 	} else if(activate_env != 'NA'){
 		command = paste(activate_env, ';', sep = ' ')
     }
