@@ -1,7 +1,6 @@
-#' build_permuation
+#' true_P
 #'
-#' Apply a permuation to obtain a full linked data set from df1 and df2. 
-#' The permutation is applied to df2, reordering its rows with respect to df1.
+#' The true permuation linking samples1 and samples2.
 #'
 #' This file is part of GFS.
 #' 
@@ -18,16 +17,14 @@
 #' You should have received a copy of the GNU General Public License
 #' along with GFS. If not, see <https://www.gnu.org/licenses/>.
 #'
-#' @param df1 	The first dataframe.
-#' @param df2 	The second dataframe.
-#' @param p		The permutation to apply.	
-#' @export build_permutation
-
-build_permutation = function(df1, df2, p){
-	stopifnot(ncol(p) == 1)
-	stopifnot(length(p) == nrow(df1))
-	df1_adj = df1[which(!is.na(p)),]
-	df2_unshuffled = df2[p[which(!is.na(p))], ]
-	
-	return(cbind(df1_adj, df2_unshuffled))
-}
+#' @docType data
+#'
+#' @format A data frame with columns:
+#' \describe{
+#'   Each column is a permutation.
+#' }
+#' @examples
+#' \dontrun{
+#'  true_P
+#' }
+"true_P"

@@ -1,3 +1,10 @@
+#' permute_inputs
+#' 
+#' Runs the permutation sampling procedure on the two data sets specified by the
+#' df1 and df2 inputs over the blocks defined in the data sets (dataframes or
+#' relative paths to dataframes). A sampled permutation can be applied to the
+#' data set at df2_path to aling its rows with those of the data set at df1_path.
+#'
 #' This file is part of GFS.
 #' 
 #' GFS is free software: you can redistribute it and/or modify
@@ -5,18 +12,13 @@
 #' the Free Software Foundation, either version 3 of the License, or
 #' (at your option) any later version.
 #' 
-#' Foobar is distributed in the hope that it will be useful,
+#' GFS is distributed in the hope that it will be useful,
 #' but WITHOUT ANY WARRANTY; without even the implied warranty of
 #' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #' GNU General Public License for more details.
 #' 
 #' You should have received a copy of the GNU General Public License
 #' along with GFS. If not, see <https://www.gnu.org/licenses/>.
-#'
-#' Runs the permutation sampling procedure on the two data sets specified by the
-#' df1 and df2 inputs over the blocks defined in the data sets (dataframes or
-#' relative paths to dataframes). A sampled permutation can be applied to the
-#' data set at df2_path to aling its rows with those of the data set at df1_path.
 #'
 #' @param df1 A dataframe OR a string with the path (from the R working directory) to
 #'          the first data set with blocks.

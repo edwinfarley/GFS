@@ -1,3 +1,8 @@
+#' P_joint_samples
+#'
+#' Example output of permute_inputs to be used with samples1 and samples2 data.
+#' Permutations samples using joint model (Normal + Logistic).
+#'
 #' This file is part of GFS.
 #' 
 #' GFS is free software: you can redistribute it and/or modify
@@ -5,7 +10,7 @@
 #' the Free Software Foundation, either version 3 of the License, or
 #' (at your option) any later version.
 #' 
-#' Foobar is distributed in the hope that it will be useful,
+#' GFS is distributed in the hope that it will be useful,
 #' but WITHOUT ANY WARRANTY; without even the implied warranty of
 #' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #' GNU General Public License for more details.
@@ -13,8 +18,7 @@
 #' You should have received a copy of the GNU General Public License
 #' along with GFS. If not, see <https://www.gnu.org/licenses/>.
 #'
-#' Example output of permute_inputs to be used with samples1 and samples2 data.
-#' Permutations samples using joint model (Normal + Logistic).
+#' @docType data
 #'
 #' @format A data frame with columns:
 #' \describe{
@@ -24,4 +28,4 @@
 #' \dontrun{
 #'  P_joint_samples
 #' }
-"P_joint"
+"P_joint_samples"

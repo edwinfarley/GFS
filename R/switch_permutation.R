@@ -1,3 +1,10 @@
+#' switch_permutation
+#' 
+#' Switch the direction of the permutation to be in terms of the data set. The
+#' permute_inputs function returns a permutation in terms of the second data set
+#' with respect to the first data set. This function will change the permutation
+#' to be in terms of the first data set with respect to the second.
+#'
 #' This file is part of GFS.
 #' 
 #' GFS is free software: you can redistribute it and/or modify
@@ -5,18 +12,13 @@
 #' the Free Software Foundation, either version 3 of the License, or
 #' (at your option) any later version.
 #' 
-#' Foobar is distributed in the hope that it will be useful,
+#' GFS is distributed in the hope that it will be useful,
 #' but WITHOUT ANY WARRANTY; without even the implied warranty of
 #' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #' GNU General Public License for more details.
 #' 
 #' You should have received a copy of the GNU General Public License
 #' along with GFS. If not, see <https://www.gnu.org/licenses/>.
-#'
-#' Switch the direction of the permutation to be in terms of the data set. The
-#' permute_inputs function returns a permutation in terms of the second data set
-#' with respect to the first data set. This function will change the permutation
-#' to be in terms of the first data set with respect to the second.
 #'
 #' @param P Dataframe/matrix of permutations as columns.
 #' @export switch_permutation

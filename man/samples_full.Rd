@@ -3,11 +3,7 @@
 \docType{data}
 \name{samples_full}
 \alias{samples_full}
-\title{Example subset of the Behavioral risk factor surveillance system survey data set (BRFSS)
-consisting of 3200 rows extracted from the full data set. Entries sampled at random from
-complete rows (no missing or warning values). Blocked by respondent's sex, geographic 
-stratum, and month of collection (blocking variables not included). See samples1 and 
-samples2 data sets for partition of this full data set to perform linkage.}
+\title{samples_full}
 \format{
 A data frame with columns:
 \describe{
@@ -21,23 +17,39 @@ A data frame with columns:
  \item{block}{Blocking index.}
 }
 }
-\source{
-Department of Health, Centers for Disease Control Human Services, and Pre-
-vention (CDC). Behavioral risk factor surveillance system survey data, 2001.
-}
 \usage{
 samples_full
 }
 \description{
-Example subset of the Behavioral risk factor surveillance system survey data set (BRFSS)
+Example subset of the Behavioral Risk Factor Surveillance System Survey (BRFSS) data set
 consisting of 3200 rows extracted from the full data set. Entries sampled at random from
 complete rows (no missing or warning values). Blocked by respondent's sex, geographic 
 stratum, and month of collection (blocking variables not included). See samples1 and 
 samples2 data sets for partition of this full data set to perform linkage.
 }
+\details{
+This file is part of GFS.
+
+GFS is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+GFS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with GFS. If not, see <https://www.gnu.org/licenses/>.
+}
 \examples{
 \dontrun{
  samples_full
 }
+}
+\references{
+Department of Health, Centers for Disease Control Human Services, and Pre-
+vention (CDC). Behavioral risk factor surveillance system survey data, 2001.
 }
 \keyword{datasets}
